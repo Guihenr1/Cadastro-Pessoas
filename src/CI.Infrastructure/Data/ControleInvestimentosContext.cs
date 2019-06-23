@@ -13,11 +13,35 @@ namespace CI.Infrastructure.Data
 
         }
 
-        public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Investimento> Investimentos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pessoa>().ToTable("Pessoa");
+            modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+            modelBuilder.Entity<Investimento>().ToTable("Investimentos");
+
+            #region Configurações do usuário
+
+            modelBuilder.Entity<Usuario>().Property(e => e.Nome)
+                .HasColumnType("varchar(100)")
+                .IsRequired();
+            modelBuilder.Entity<Usuario>().Property(e => e.CPF)
+                .HasColumnType("varchar(11)")
+                .IsRequired();
+
+            #endregion
+
+            #region Configurações do investimento
+
+            modelBuilder.Entity<Investimento>().Property(e => e.Tipo)
+                .HasColumnType("varchar(20)");
+
+            modelBuilder.Entity<Investimento>().Property(e => e.Valor)
+                .HasColumnType("varchar(10)")
+                .IsRequired();
+
+            #endregion
         }
     }
 }

@@ -3,14 +3,16 @@ using CI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CI.Infrastructure.Migrations
 {
     [DbContext(typeof(ControleInvestimentosContext))]
-    partial class ControleInvestimentosContextModelSnapshot : ModelSnapshot
+    [Migration("20190622193028_AlteracaoBanco")]
+    partial class AlteracaoBanco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,12 +26,9 @@ namespace CI.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Tipo")
-                        .HasColumnType("varchar(20)");
+                    b.Property<string>("Tipo");
 
-                    b.Property<string>("Valor")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
+                    b.Property<string>("Valor");
 
                     b.Property<int>("usuarioId");
 
@@ -37,7 +36,7 @@ namespace CI.Infrastructure.Migrations
 
                     b.HasIndex("usuarioId");
 
-                    b.ToTable("Investimentos");
+                    b.ToTable("Investimento");
                 });
 
             modelBuilder.Entity("CI.Domain.Entity.Usuario", b =>
@@ -46,13 +45,9 @@ namespace CI.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CPF")
-                        .IsRequired()
-                        .HasColumnType("varchar(11)");
+                    b.Property<string>("CPF");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("Nome");
 
                     b.HasKey("usuarioId");
 

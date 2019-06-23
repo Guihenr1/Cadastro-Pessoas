@@ -4,15 +4,17 @@ using System.Text;
 
 namespace CI.Domain.Entity
 {
-    public class Pessoa
+    public class Usuario
     {
-        public Pessoa()
+        public Usuario()
         {
 
         }
 
-        public int Id { get; set; }
+        public int usuarioId { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
+
+        public ICollection<Investimento> investimentos { get; set; }
     }
 }
