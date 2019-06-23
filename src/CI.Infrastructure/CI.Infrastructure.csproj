@@ -16,4 +16,8 @@
     <ProjectReference Include="..\CI.Domain\CI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
 </Project>
