@@ -23,8 +23,8 @@ namespace CI.Infrastructure.Data
 
             var investimentos = new Investimento[]
             {
-                new Investimento{Tipo = "Ações", Valor = "5.000", Usuario = usuarios[0]},
-                new Investimento{Valor = "10.000", Usuario = usuarios[0]}
+                new Investimento{Tipo = "Ações", Valor = 5.000M, Usuario = usuarios[0]},
+                new Investimento{Tipo = "CDB", Valor = 10.000M, Usuario = usuarios[0]}
             };
 
             context.AddRange(investimentos);

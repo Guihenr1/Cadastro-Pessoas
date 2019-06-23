@@ -13,9 +13,9 @@ namespace CI.Domain.Entity
 
         public int InvestimentoId { get; set; }
         public string Tipo { get; set; }
-        public string Valor { get; set; }
+        public decimal Valor { get; set; }
 
-        public int usuarioId { get; set; }
+        public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
     }
 }
